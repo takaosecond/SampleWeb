@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>郵便番号結果画面</title>
+</head>
+
+<body>
+	<div th:insert="common/sourceList :: sourceList"></div>
+	<div th:replace="common/messageIcon :: messageIcon"></div>
+	<table class="sample-table" th:each="item : ${zipcodeList}" th:object="${item}">
+		<tr>
+			<th>郵便番号</th>
+			<td th:text="*{zipcode}"></td>
+		</tr>
+		<tr>
+			<th>都道府県コード</th>
+			<td th:text="*{prefcode}"></td>
+		</tr>
+		<tr>
+			<th>都道府県名</th>
+			<td th:text="*{address1}"></td>
+		</tr>
+		<tr>
+			<th>市区町村名</th>
+			<td th:text="*{address2}"></td>
+		</tr>
+		<tr>
+			<th>町域名</th>
+			<td th:text="*{address3}"></td>
+		</tr>
+
+		<tr>
+			<th>都道府県名カナ</th>
+			<td th:text="*{kana1}"></td>
+		</tr>
+		<tr>
+			<th>市区町村名カナ</th>
+			<td th:text="*{kana2}"></td>
+		</tr>
+		<tr>
+			<th>町域名カナ</th>
+			<td th:text="*{kana3}"></td>
+		</tr>
+	</table>
+	<a th:href="@{/zipcode}">▶️郵便番号確認画面へ戻る</a>
+</body>
+
+</html>

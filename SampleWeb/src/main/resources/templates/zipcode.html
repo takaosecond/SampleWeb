@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>郵便番号確認画面</title>
+</head>
+
+<body>
+	<div th:insert="common/sourceList :: sourceList"></div>
+	<div th:replace="common/messageIcon :: messageIcon"></div>
+	<div class="container-fluid">
+		<h2>郵便番号確認画面</h2>
+		<form method="POST" action="/zipcode/confirm">
+			<table class="sample-table">
+				<tr>
+					<th>郵便番号</th>
+					<td><input type="text" name="zipcode" value="" size="30"></input></td>
+				</tr>
+			</table>
+			<input type="submit" value="送信" size="30"></input>
+			<font color="#ff0000">
+				<th:block th:text="${errorMessage}"></th:block>
+			</font>
+		</form>
+	</div>
+</body>
+
+</html>
